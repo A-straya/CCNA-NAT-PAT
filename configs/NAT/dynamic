@@ -1,0 +1,12 @@
+### Configuration du NAT Dynamique (Cisco IOS)
+
+#### Syntaxe générale
+```cisco
+Router(config)# ip nat pool <nom-du-pool> <start-ip> <end-ip> netmask <netmask>
+Router(config)# access-list <numero> permit <adresse-ip> <masque-generique>
+Router(config)# ip nat inside source list <numero-acl> pool <nom-du-pool>
+Router(config)# interface <interface-lan>
+Router(config-if)# ip nat inside
+Router(config-if)# exit
+Router(config)# interface <interface-wan>
+Router(config-if)# ip nat outside
